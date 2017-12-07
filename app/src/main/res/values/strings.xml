@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Market</string>
+    <string name="recommend_recommend">推荐</string>
+    <string name="classification_recommend">分类</string>
+    <string name="popular_recommend">排行</string>
+    <string name="supervise_recommend">管理</string>
+    <string name="self_recommend">我的</string>
+
+    <string name="more_item_recommend">更多</string>
 </resources>

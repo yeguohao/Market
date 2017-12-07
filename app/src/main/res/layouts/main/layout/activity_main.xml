@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ygh.market.Main.MainActivity">
+
+    <com.ygh.market.view.FixedTextTabLayout
+        android:id="@+id/main_fixed_text"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:text="@string/recommend_recommend"
+            style="@style/fixed_text_recommend" />
+
+        <TextView
+            android:text="@string/classification_recommend"
+            style="@style/fixed_text_recommend" />
+
+        <TextView
+            android:text="@string/popular_recommend"
+            style="@style/fixed_text_recommend" />
+
+        <TextView
+            android:text="@string/supervise_recommend"
+            style="@style/fixed_text_recommend" />
+
+        <TextView
+            android:text="@string/self_recommend"
+            style="@style/fixed_text_recommend" />
+
+    </com.ygh.market.view.FixedTextTabLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/main_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</android.support.constraint.ConstraintLayout>
