@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.ygh.market.R;
+
 public class Classification extends Fragment {
 
     public static Classification newInstance() {
@@ -21,6 +23,8 @@ public class Classification extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+        View root = inflater.inflate(R.layout.fragment_classification, container, false);
+
+        return root;
     }
 }

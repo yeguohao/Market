@@ -6,7 +6,15 @@
     android:layout_height="match_parent"
     tools:context="com.ygh.market.Main.MainActivity">
 
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/main_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
     <com.ygh.market.view.FixedTextTabLayout
+        android:background="#000000"
         android:id="@+id/main_fixed_text"
         android:layout_width="match_parent"
         android:layout_height="50dp">
@@ -32,10 +40,5 @@
             style="@style/fixed_text_recommend" />
 
     </com.ygh.market.view.FixedTextTabLayout>
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/main_viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
 </android.support.constraint.ConstraintLayout>

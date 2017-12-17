@@ -76,7 +76,7 @@ public class RecommendRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.
         return SERIES;
     }
 
-    private static class ApplicationList extends RecyclerView.ViewHolder {
+    static class ApplicationList extends RecyclerView.ViewHolder {
 
         @BindView(R.id.recommend_item_topic)
         TextView topic;
@@ -114,7 +114,7 @@ public class RecommendRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.
         }
     }
 
-    private static class ApplicationImage extends RecyclerView.ViewHolder {
+    static class ApplicationImage extends RecyclerView.ViewHolder {
 
         @BindView(R.id.recommend_item_series_1)
         ImageView series_1;

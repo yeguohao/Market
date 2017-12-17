@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 public class FixedTextTabLayout extends ViewGroup {
 
@@ -17,6 +18,7 @@ public class FixedTextTabLayout extends ViewGroup {
     private float p;
     private Context context;
     private ViewPager viewPager;
+    private View selectedView;
 
     public FixedTextTabLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -28,11 +30,14 @@ public class FixedTextTabLayout extends ViewGroup {
         super.onFinishInflate();
         childCount = getChildCount();
         p = 100f / childCount;
+        Log.e(TAG, "onFinishInflate: " + p);
 
         underSlideView = new SlideColorView(context, Color.WHITE, 0);
         addView(underSlideView, new MarginLayoutParams(LayoutParams.MATCH_PARENT, 2));
 
         addListener();
+
+        selectedView = getChildAt(0);
     }
 
     private void addListener() {
@@ -73,7 +78,6 @@ public class FixedTextTabLayout extends ViewGroup {
 
         measureChildWithMargins(underSlideView, widthMeasureSpec, 0, heightMeasureSpec, 0);
 
-        Log.e(TAG,  "" + width );
         setMeasuredDimension(width, height);
     }
 
@@ -92,19 +96,38 @@ public class FixedTextTabLayout extends ViewGroup {
         underSlideView.layout(l, b - 2, r, b);
     }
 
+    private void setSelectedView(int position) {
+        View view = getChildAt(position);
+
+        if (view != underSlideView && view != selectedView) {
+            adjustSelectedViewStyle(view, false);
+            adjustSelectedViewStyle(selectedView, true);
+            this.selectedView = view;
+        }
+    }
+
+    private void adjustSelectedViewStyle(View view, boolean naral) {
+        if (view instanceof TextView) {
+            TextView textView = (TextView) view;
+
+            if (naral) {
+                
+            }
+        }
+    }
+
     public void setupWithViewPager(ViewPager viewPager) {
         this.viewPager = viewPager;
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                float x = p * position + positionOffset;
-                Log.e(TAG, "onPageScrolled: " + x );
-                underSlideView.setOffsetX(x);
+                float x = positionOffset / childCount;
+                underSlideView.setOffsetX(((position * p / 100f)) + x);
             }
 
             @Override
             public void onPageSelected(int position) {
-
+                setSelectedView(position);
             }
 
             @Override

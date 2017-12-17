@@ -32,7 +32,7 @@ public class Recommend extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_recommend, container, false);
-        ButterKnife.bind(root);
+        ButterKnife.bind(this, root);
 
         recyclerView.setAdapter(new RecommendRecyclerAdapter());
         return root;
